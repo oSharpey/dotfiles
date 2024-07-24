@@ -1,11 +1,11 @@
 * {
     font-family: "UbuntuMono Nerd Font";
-    font-size: 12px;
+    font-size: 14px;
 }
 
 
 window#waybar { 
-    background-color: #163832; 
+    background-color: #225877; 
     color: #ffffff;    
 }
 
@@ -18,46 +18,43 @@ window#waybar {
 
 .modules-right {
 	background-color: #323232;
-	padding: 0px 4px 0px 0px;
+	padding: 0px 5px 0px 0px;
 }
 
 
 #custom-scratch {
 	background-color: #323232;
 	color: #b8b8b8;
-	padding: 0px 8px 0px 8px;
+	padding: 0px 9px 0px 9px;
 }
 
 
-#workspaces {
-}
 
-
-#workspaces button {
-	padding: 0px 10px 0px 10px; 
+#tags button {
+	padding: 0px 11px 0px 11px; 
  	min-width: 1px;
 	color: #ffffff;
     border-radius: 0px;
 }
 
 #memory, #cpu {
-    padding: 0px 7px 0px 7px;
+    padding: 0px 8px 0px 8px;
     color: #b8b8b8;
 }
 
 #custom-spotify {
-    padding: 0px 4px 0px 4px;
+    padding: 0px 8px 0px 8px;
 }
 
-#workspaces button.focused { 
-	padding: 0px 10px 0px 10px; 
-	background-color: #163832;
+#tags button.focused { 
+	padding: 0px 11px 0px 11px; 
+	background-color: #285577;
 	color: #ffffff;
     border-radius: 0px;
 }
 
-#workspaces button.persistent {
-    padding: 0px 10px 0px 10px; 
+#tags button.persistent {
+    padding: 0px 11px 0px 11px; 
     min-width: 1px;
     color: #888888;
     border-radius: 0px;
@@ -67,15 +64,15 @@ window#waybar {
 #mode { 
 	 background-color: #900000;
 	 color: #ffffff;
-     padding: 0px 4px 0px 4px;
+     padding: 0px 5px 0px 5px;
      border: 1px solid #2f343a;
 }
 
 
 #window {
 	 color: #ffffff;
-	 background-color: #163832;
-     padding: 0px 9px 0px 9px;
+	 background-color: #285577;
+     padding: 0px 10px 0px 10px;
 }
 
 
@@ -91,20 +88,18 @@ window#waybar.empty {
 
 
 #network, #temperature, #backlight, #pulseudio, #battery {
-    padding: 0px 3px 0px 3px;
+    padding: 0px 5px 0px 5px;
 }
-
     
 
 #clock {
-	margin: 0px 2px 0px 2px;
-    padding: 0px 4px 0px 4px;
+	margin: 0px 5px 0px 5px;
 }
 
 
 #tray{
-   padding: 0px 4px 0px 0px;
-   margin: 0px 4px 0px 0px;
+   padding: 0px 8px 0px 5px;
+   margin: 0px 5px 0px 5px;
 }
 
 

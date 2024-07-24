@@ -23,24 +23,24 @@ set $term kitty
 # Shows a combined list of the applications with desktop files and
 # executables from PATH.
 # TODO: add window with the next release of rofi-wayland
-set $menu wofi --show drun 
-
+#set $menu fuzzel 
+set $menu ulauncher-toggle
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg /home/oscar/Pictures/wallpaper/wallpaper11.jpg fill
+output * bg /home/oscar/pics/wallpaper/apple3.jpg fill 
 
 
-set $cl_high #89b4fa
-set $cl_indi #89b4fa
+set $cl_high #3b3a3b
+set $cl_indi #3b3a3b
 set $cl_back #231f20
 set $cl_fore #d9d8d8
 set $cl_urge #ee2e24
 
 # Colors                border   bg       text     indi     childborder
-client.focused          $cl_high $cl_high $cl_fore $cl_indi $cl_high
-client.focused_inactive $cl_back $cl_back $cl_fore $cl_back $cl_back
+client.focused          $cl_fore $cl_fore $cl_back $cl_fore $cl_fore
+client.focused_inactive $cl_fore $cl_back $cl_fore $cl_back $cl_back
 client.unfocused        $cl_back $cl_back $cl_fore $cl_back $cl_back
 client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge
 
@@ -48,9 +48,10 @@ client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'Material-Palenight-BL'
-    gsettings set $gnome-schema icon-theme 'Vimix-Black-dark'
+    gsettings set $gnome-schema gtk-theme 'Yaru-dark'
+    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
     autotiling
+    sway-audio-idle-inhibit
 }
 
 
@@ -92,9 +93,9 @@ input * {
 }
 
 default_border pixel 1
-default_floating_border pixel 1
+default_floating_border pixel 0
 
-gaps inner 10
+gaps inner 3
 
 ### Key bindings
 #
@@ -109,6 +110,10 @@ gaps inner 10
     # Start your launcher
     bindsym $mod+d exec $menu
 
+    for_window [class="virt-manager"] tabbed enable
+    for_window [app_id="virtualbox"] tabbed enable
+    for_window [shell=".*"] inhibit_idle fullscreen
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -120,7 +125,10 @@ gaps inner 10
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Alt+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    bindsym $mod+Alt+s exec swaynag -t warning -m 'You pressed the shutdown shortcut. Do you really want to shutdown' -B 'Yes, shutdown' 'systemctl poweroff'
+
 #
 # Moving around:
 #
@@ -131,7 +139,7 @@ gaps inner 10
     bindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
+
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
 

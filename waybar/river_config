@@ -1,25 +1,16 @@
 {
 	"layer": "top",	
 	"position": "top",
+    "height": 12,
 
 
-    "modules-left": ["sway/workspaces", "custom/scratch", "memory", "cpu", "sway/mode", "sway/window"],
+    "modules-left": ["river/tags", "memory", "cpu", "river/mode", "river/window"],
     "modules-center": [],
-    "modules-right": ["custom/spotify", "clock", "network", "custom/div", "backlight", "custom/div", "pulseaudio", "custom/div", "battery", "custom/div", "tray"],
+    "modules-right": ["custom/spotify", "network", "backlight", "pulseaudio", "battery", "clock", "tray"],
 
 
-	"sway/workspaces": {
-        "disable-scroll": true,
-        "disable-markup": true,
-        "format": "{index}", 
-        "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-        },
-
+	"river/tags": {
+        "num-tags" : 5
 },
 
     "memory": {
@@ -48,9 +39,8 @@
     },
 
 
-	"sway/window": {
-    	"format": "{}",
-    	"max-length": 150
+	"river/window": {
+    	"max-length": 50
 },
 
 
@@ -63,15 +53,13 @@
 },
 
 
-    "tray": {
-        "icon-size": 14,
-        "spacing": 6 
-},
 
 
 
     "clock": {
-        "format": "{:%a %e %b %R} |",
+        "format": "{:%H:%M}",
+        "tooltip": true,
+        "tooltip-format": "{: %A, %B %e %Y}"
     },
 
     
@@ -85,11 +73,11 @@
               "critical": 20
 },
 
-        "format": "{icon}  {capacity}% ",
-        "format-good": "{icon}  {capacity}% ", 
-        "format-full": "  {capacity}% ",
-        "format-charging": "  {capacity}% ",
-        "format-plugged": "  {capacity}% ",
+        "format": "{icon}  {capacity}%",
+        "format-good": "{icon}  {capacity}%", 
+        "format-full": "  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
         "format-icons": ["", "", "", "", ""],
         "interval": 30
 },
@@ -97,9 +85,9 @@
 
     "network": {
         "interface": "wlp2s0", 
-        "format-wifi": "  {essid} ",
-        "format-disconnected": "󰤮  Disconnected ",
-        "format-ethernet": "  {ip}  ",
+        "format-wifi": "  {essid}",
+        "format-disconnected": "󰤮  Disconnected",
+        "format-ethernet": "  {ip}",
         "interval": 60
 },
 
@@ -114,15 +102,15 @@
 
 	"backlight": {
     	"device": "intel_backlight",
-    	"format": "{icon}  {percent}% ",
+    	"format": "{icon}  {percent}%  ",
     	"format-icons": ["󰃞", "󰃟", "󰃠"],
     	"interval": 60
 },
 
 
     "pulseaudio": {
-        "format": "{icon}  {volume}% ",
-        "format-bluetooth": " {volume}% ",
+        "format": "{icon}  {volume}%  ",
+        "format-bluetooth": " {volume}%  ",
         "format-muted":"󰝟  Mute  ",
         "interval": 60,
 
@@ -138,23 +126,8 @@
        },
             
        "on-click": "pavucontrol"    
-},
 
-"custom/div": {
-    "format": "| "
-},
 
-"custom/audio_idle_inhibitor": {
-		"format": " {icon} ",
-		"exec": "sway-audio-idle-inhibit --dry-print-both-waybar",
-		"exec-if": "which sway-audio-idle-inhibit",
-		"return-type": "json",
-		"format-icons": {
-			"output": "",
-			"input": "",
-			"output-input": "  ",
-			"none": ""
-}
 }
 
 }
